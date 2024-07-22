@@ -1,0 +1,50 @@
+.container-fluid{
+    background-color: #f5f5f5;
+}
+.row-section{
+    background-color: #ffff;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 20px;
+}
+.p-warning{
+    color: #968A8A;
+}
+.section-title{
+    font-size: 6mm;
+    font-weight: bold;
+}
+.btn-primary{
+    background-color: #553D8E;
+    padding: 15px;
+    border-color: #553D8E;
+    width: 200px;
+}
+.btn-secondary{
+    background-color: #968A8A;
+    padding: 15px;
+    border-color: #968A8A;
+    width: 200px;
+}
+.text-large{
+    color: #736C6C;
+    font-size: larger;
+}
+.selection-field{
+    background-color: #f5f5f5;
+    width: 400px;
+    padding: 50px;
+    text-align: center;
+    margin: 0 auto;
+    cursor: pointer;
+    font-size: x-large;
+    color: #736C6C;
+}
+.middle-text{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+:host ::ng-deep .p-badge-success { 
+    background-color: #553d8e; 
+}

@@ -1,0 +1,104 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-9">
+                <div class="row row-section">
+                    <div class="col-3">
+                        <img style="width: 200px;" src="./assets/pfp-details-temp.png">
+                    </div>
+                    <div class="col-9">
+                        <p class="mt-4" style="font-size: x-large; font-weight: bold;">{{this.data.Name}}</p>
+                        <p style="color: #736C6C; font-weight: 400;">{{this.data.Address || this.data.address}}</p>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="col-12">
+                            <p style="float: inline-end; color: #553D8E; cursor: pointer;">+ Add your online presence</p>
+                        </div>
+                            
+                    </div>
+                    
+                </div>
+                <div class="row row-section">
+                    <div class="col-6">
+                        <p class="section-title">General Info:</p>
+                        <p><span class="small-section-title">Age:</span> 29 Years</p>
+                        <p><span class="small-section-title">Experience:</span>
+                            <p>{{this.data.Skills}}</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="section-title">Contact Info:</p>
+                        <p><img style="width: 40px;" src="./assets/Call.png"><span class="small-section-title">{{this.data.Phone || this.data.phone || this.data.phones || this.data.Phones }}</span></p>
+                        <p><img style="width: 40px;" src="./assets/Envelope.png"><span class="small-section-title">{{this.data.Email}}</span></p>
+                        <p><img style="width: 40px;" src="./assets/Download.png"> <button style="padding: 8px;" class="btn btn-primary">Download CV</button></p>
+                    </div>
+                </div>
+                <div class="row row-section">
+                    <p class="section-title">Experience</p>
+                    @for(i of this.exp; track i;){
+                    <div class="col-9 mb-2">
+                        
+                            <p>{{i}}</p>
+                        <!-- move['Ship type'] -->
+                    </div>
+                    <hr>
+                }
+                   
+                </div>
+                <div class="row row-section">
+                    <p class="section-title">Education</p>
+                    <div class="col-9 mb-2">
+                        @for(i of this.edu; track i;){
+                            <div class="col-9 mb-2">
+                                
+                                    <p>{{i}}</p>
+                                <!-- move['Ship type'] -->
+                            </div>
+                            <hr>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="row mt-4">
+                    <div class="col-2">
+                        <p-inputSwitch  />
+                    </div>
+                    
+                    <div class="col-10 mt-1">
+                        <span class="small-section-title">Public Profile</span>
+                    </div>
+                    <div class="col-12">
+                        <p style="margin-left: 4px;">Here is your public profile link:</p>
+                        <p style="margin-left: 4px; color: #553D8E;">corelia.ai/me/mohamedali</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-2">
+                        <p-inputSwitch  />
+                    </div>
+                    
+                    <div class="col-10 mt-1">
+                        <span class="small-section-title">Profile Visibility</span>
+                    </div>
+                    <div class="col-12">
+                        <hr>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-2">
+                        <p-inputSwitch  />
+                    </div>
+                    
+                    <div class="col-10 mt-1">
+                        <span class="small-section-title">Available for immediate start</span>
+                    </div>
+                </div>
+                <div style="margin: 5px;" class="row row-section mt-5">
+                    <p style="font-weight: bold; font-size: large;">Languages:</p>
+                    <p style="font-weight: bold; font-size: large;" class="mt-2">Arabic</p>
+                    <p style="font-weight: bold; font-size: large;" class="mt-2">English</p>
+                </div>
+            </div>
+        </div>
+    </div>

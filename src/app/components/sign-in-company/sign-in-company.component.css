@@ -1,0 +1,32 @@
+.signin-background{
+    background-image: url("src/assets/signin-company-background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+.col-signin{
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+}
+.login-title{
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Optional, to center-align text inside the flex item */
+}
+.btn-primary{
+    background-color: #553D8E;
+    border-color: #553D8E;
+    padding: 10px;
+}
+.p-desc{
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+}
+.p-desc-large{
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+}

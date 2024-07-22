@@ -1,0 +1,22 @@
+.container-fluid{
+    background-color: #f5f5f5;
+}
+.row-section{
+    background-color: #ffff;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 20px;
+}
+.section-title{
+    font-size: 6mm;
+    font-weight: bold;
+}
+.btn-primary{
+    background-color: #553D8E;
+    padding: 10px;
+    border-color: #553D8E;
+}
+.text-large{
+    color: #736C6C;
+    font-size: larger;
+}
