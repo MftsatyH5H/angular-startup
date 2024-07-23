@@ -45,7 +45,8 @@ export class UserSignupComponent {
     this.cvDataService.ExtractCvData(formData).subscribe((response) => {
       console.log(response);
       this.loading = false;
-      this.cvDataService.setCvId(response)
+      this.cvDataService.setCvId(response.id);
+      this.cvDataService.setCv(response.extracted);
       this.navigateToDest();
       
     },((error) => {

@@ -7,8 +7,8 @@
                         <img style="width: 200px;" src="./assets/pfp-details-temp.png">
                     </div>
                     <div class="col-9">
-                        <p class="mt-4" style="font-size: x-large; font-weight: bold;">{{this.data.Name}}</p>
-                        <p style="color: #736C6C; font-weight: 400;">{{this.data.Address || this.data.address}}</p>
+                        <p class="mt-4" style="font-size: x-large; font-weight: bold;">{{this.cv.Name}}</p>
+                        <p style="color: #736C6C; font-weight: 400;">{{this.cv.Address}}</p>
                     </div>
                     <div class="row justify-content-end">
                         <div class="col-12">
@@ -22,39 +22,35 @@
                     <div class="col-6">
                         <p class="section-title">General Info:</p>
                         <p><span class="small-section-title">Age:</span> 29 Years</p>
-                        <p><span class="small-section-title">Experience:</span>
-                            <p>{{this.data.Skills}}</p>
+                        <p><span class="small-section-title">Skills:</span>
+                            @for(i of this.skillList; track i){
+                                <span>{{i}}, </span>
+                            }
                     </div>
                     <div class="col-6">
                         <p class="section-title">Contact Info:</p>
-                        <p><img style="width: 40px;" src="./assets/Call.png"><span class="small-section-title">{{this.data.Phone || this.data.phone || this.data.phones || this.data.Phones }}</span></p>
-                        <p><img style="width: 40px;" src="./assets/Envelope.png"><span class="small-section-title">{{this.data.Email}}</span></p>
+                        <p><img style="width: 40px;" src="./assets/Call.png"><span class="small-section-title">{{this.cv.Phones}}</span></p>
+                        <p><img style="width: 40px;" src="./assets/Envelope.png"><span class="small-section-title">{{this.cv.Email}}</span></p>
                         <p><img style="width: 40px;" src="./assets/Download.png"> <button style="padding: 8px;" class="btn btn-primary">Download CV</button></p>
                     </div>
                 </div>
                 <div class="row row-section">
                     <p class="section-title">Experience</p>
-                    @for(i of this.exp; track i;){
                     <div class="col-9 mb-2">
-                        
-                            <p>{{i}}</p>
-                        <!-- move['Ship type'] -->
+                            <p>{{this.cv.Experience}}</p>
                     </div>
                     <hr>
-                }
+                
                    
                 </div>
                 <div class="row row-section">
                     <p class="section-title">Education</p>
                     <div class="col-9 mb-2">
-                        @for(i of this.edu; track i;){
                             <div class="col-9 mb-2">
-                                
-                                    <p>{{i}}</p>
-                                <!-- move['Ship type'] -->
+                                <p>{{this.cv.Educations || this.cv.Education}}</p>
                             </div>
                             <hr>
-                        }
+                    
                     </div>
                 </div>
             </div>

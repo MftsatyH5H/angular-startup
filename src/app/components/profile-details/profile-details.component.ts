@@ -13,19 +13,23 @@ import { NgFor } from '@angular/common';
 })
 export class ProfileDetailsComponent implements OnInit {
   cvId: any
-  info : any
-  data : any | undefined
-  exp: any
-  edu: any
+  cv: any
+  skillList: any
   constructor(private router: Router, private cvDataService: CvDataService) {}
   
   ngOnInit():void {
-   this.cvId = this.cvDataService.getCvID();
-    console.log(this.cvId)
-    this.data = this.cvId.content;
-    this.exp = this.data["Professional Experience"].split("\n*");
-    this.edu = this.data.Education.split("\n*");
-    console.log(this.exp, this.edu);
+    this.cv = this.cvDataService.getCv();
+    console.log(this.cv);
+    this.skillList = this.cv.Skills.split('\n');
+    // this.cvId = this.cvDataService.getCvID();
+    // console.log(this.cvId)
+    // this.cvDataService.getCvData(this.cvId).subscribe((response) => {
+    //   console.log(response);
+    // })
+    // this.data = this.cvId.content;
+    // this.exp = this.data["Professional Experience"].split("\n*");
+    // this.edu = this.data.Education.split("\n*");
+    // console.log(this.exp, this.edu);
     
   //   this.info = JSON.parse(response);
   //   this.data = JSON.parse(this.info);

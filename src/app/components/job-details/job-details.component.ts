@@ -12,7 +12,7 @@ import { CvDataService } from '../cv-data.service';
 })
 export class JobDetailsComponent implements OnInit {
   constructor(private router: Router, private cvDataService: CvDataService) {}
-  cvId: any
+  job: any
   info : any
   data : any | undefined
   exp: any
@@ -22,14 +22,7 @@ export class JobDetailsComponent implements OnInit {
   req: any
   title: any
   ngOnInit():void {
-    this.cvId = this.cvDataService.getJob();
-     console.log(this.cvId)
-     this.data = this.cvId.content;
-     this.det = this.data.JOB_DETAILS;
-     this.desc = this.data.JOB_DESCRIPTION;
-     this.req = this.data.JOB_REQUIREMENT
-     this.title = this.data.JOB_DETAILS[0].split('\n')[0];
-     console.log(this.data);
+    this.job = this.cvDataService.getJob();
      
    //   this.info = JSON.parse(response);
    //   this.data = JSON.parse(this.info);

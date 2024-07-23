@@ -5,7 +5,7 @@
                 <div class="row row-section">
                     
                     <div class="col-9">
-                        <p class="mt-4" style="font-size: x-large; font-weight: bold;">{{title}}</p>
+                        <p class="mt-4" style="font-size: x-large; font-weight: bold;">{{this.job["Role Scope"]}}</p>
                         <h4><span class="badge bg-secondary">Full Time</span> <span style="margin-left: 10px;" class="badge bg-secondary">Remote</span></h4>
                         <p style="color: #736C6C; font-weight: 500;">Corelia -Paris, France </p>
                         <p style="color: #736C6C; font-weight: 400;">Posted 4 hours ago</p>
@@ -19,20 +19,12 @@
                 </div>
                 <div class="row row-section">
                         <p class="section-title">Job Details</p>
-                        @for(i of det; track i){
-                            <p>{{i}}</p>
-                        }
+                        <p>{{this.job.Responsibilities}}</p>
                 </div>
-                <div class="row row-section">
-                    <p class="section-title">Job Description</p>
-                    @for(i of desc; track i){
-                        <p>{{i}}</p>
-                    }
-            </div>
             <div class="row row-section">
                 <p class="section-title">Job Requirement</p>
                 @for(i of req; track i){
-                    <p>{{i}}</p>
+                    <p>{{this.job.Qualifications}}</p>
                 }
         </div>
                 <div class="row row-section">
@@ -53,27 +45,27 @@
                 <div class="row justify-content-center">
                     <div class="col-11">
                         <div class="row row-section mt-4">
-                            <p style="color: #553D8E; font-weight: bold; font-size: x-large;">Mohamed ali</p>
-                            <p>90%</p>
-                            <p>29 minutes ago</p>
+                            <p style="color: #553D8E; font-weight: bold; font-size: x-large;">Nuraldin Usama Qutb</p>
+                            <p>94%</p>
+                            <p>3 minutes ago</p>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-11">
                         <div class="row row-section mt-4">
-                            <p style="color: #553D8E; font-weight: bold; font-size: x-large;">Ahmed Sayed</p>
-                            <p>83%</p>
-                            <p>59 minutes ago</p>
+                            <p style="color: #553D8E; font-weight: bold; font-size: x-large;">Mohamed Ibrahim Abbas</p>
+                            <p>86%</p>
+                            <p>5 minutes ago</p>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-11">
                         <div class="row row-section mt-4">
-                            <p style="color: #553D8E; font-weight: bold; font-size: x-large;">Mohamed Ibrahim</p>
-                            <p>56%</p>
-                            <p>10 minutes ago</p>
+                            <p style="color: #553D8E; font-weight: bold; font-size: x-large;">Mohamed Alaa Motaman</p>
+                            <p>28%</p>
+                            <p>8 minutes ago</p>
                         </div>
                     </div>
                 </div>

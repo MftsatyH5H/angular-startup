@@ -44,7 +44,7 @@ export class UploadJobDescriptionComponent {
     this.cvDataService.ExtractJobData(formData).subscribe((response) => {
       console.log(response);
       this.loading = false;
-      this.cvDataService.setJob(response)
+      this.cvDataService.setJob(response.extracted);
       this.navigateToDest();
       
     },((error) => {
