@@ -13,6 +13,8 @@ import { ProgressBarModule } from 'primeng/progressbar';
 export class UploadJobDescriptionComponent {
   loading = false
   selectedFile: any
+  errHead: string = '';
+  errBody: string = '';
   @ViewChild('fileInput') fileInput: ElementRef | undefined;
   constructor(private router: Router, private cvDataService: CvDataService) {}
   navigateToDest() {

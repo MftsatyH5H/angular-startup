@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CvDataService {
-
+ backend = process.env["BACKEND_URL"] 
   private cvId: any;
   private cv :any;
   private jobData: any;
-  private apiUrl = 'http://10.100.102.6:5522/api/v1/user/Extract_CV';
+  private apiUrl = this.backend + '/api/v1/cvs/';
   private apiUrlJob = 'http://10.100.102.6:5522/api/v1/user/Extract_JD';
-  private apiUrlGet = "http://10.100.102.6:5522/api/v1/user/get_CV?cv_id="
+  private apiUrlGet = this.backend +"/api/v1/cvs/"
 
   constructor(private http: HttpClient) { }
 
@@ -39,9 +39,12 @@ export class CvDataService {
     return this.jobData;
   }
 
-  ExtractCvData(formData: any): Observable<any> {
+  ExtractCvData(formData: any, token: any): Observable<any> {
     console.log(this.apiUrl)
-    return this.http.post(this.apiUrl, formData);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.post(this.apiUrl, formData, {headers});
   }
   ExtractJobData(formData: any): Observable<any> {
     console.log(this.apiUrlJob)

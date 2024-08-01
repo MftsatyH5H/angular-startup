@@ -1,24 +1,40 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { BadgeModule } from 'primeng/badge';
-import { NgFor, NgIf } from '@angular/common';
+import {  NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { CvDataService } from '../cv-data.service';
+import { ErrorComponentComponent } from '../error-component/error-component.component';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { DialogModule } from 'primeng/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthService } from '../auth.service';
+import jwt_decode, { jwtDecode } from 'jwt-decode';
 @Component({
   selector: 'app-user-signup',
   standalone: true,
-  imports: [NavbarComponent, BadgeModule, NgIf, ProgressBarModule],
+  imports: [NavbarComponent, BadgeModule, NgIf, ProgressBarModule, ErrorComponentComponent, DialogModule],
   templateUrl: './user-signup.component.html',
   styleUrl: './user-signup.component.css'
 })
-export class UserSignupComponent {
+export class UserSignupComponent implements OnInit {
   @ViewChild('fileInput') fileInput: ElementRef | undefined;
   selectedFile:any;
   loading: any;
-  constructor(private router: Router, private cvDataService: CvDataService) {}
+  isErr: boolean = false;
+  token: string = ''
+  errHead: string = '';
+  errBody: string = '';
+  id: any
+  constructor(private router: Router, private cvDataService: CvDataService, private authService: AuthService) {}
+  ngOnInit(): void {
+   if(!this.authService.isAuth()){
+    this.navigateToDest2();
+   }
+   this.token = this.authService.getToken()
+  }
   navigateToDest() {
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/profile/' + this.id]);
   }
   navigateToDest2() {
     this.router.navigate(['/']);
@@ -39,18 +55,32 @@ export class UserSignupComponent {
     }
   }
   uploadFile(){
+    if(!this.selectedFile){
+      const errorbtn = document.getElementById('error-modal-button');
+      errorbtn?.click();
+      this.errHead= 'You must choose a file first!';
+      this.errBody = 'Press the "Upload Your CV" button, and choose a file!';
+      return;
+    }
     const formData: FormData = new FormData();
     this.loading = true;
-    formData.append('file', this.selectedFile, this.selectedFile.name);
-    this.cvDataService.ExtractCvData(formData).subscribe((response) => {
+    const token: any = jwtDecode(this.token);
+    this.id = token.id;
+    formData.append('cv', this.selectedFile, this.selectedFile.name);
+    formData.append('applicantId', this.id);
+    this.cvDataService.ExtractCvData(formData, this.token).subscribe((response) => {
       console.log(response);
       this.loading = false;
-      this.cvDataService.setCvId(response.id);
       this.cvDataService.setCv(response.extracted);
       this.navigateToDest();
       
     },((error) => {
       console.log(error);
+      this.isErr = true;
+      this.errHead= 'A Problem Occurred';
+      this.errBody = 'There was a connection issue with our services, please try again later!';
+      const errorbtn = document.getElementById('error-modal-button');
+      errorbtn?.click();
       this.loading = false;
     }))
 

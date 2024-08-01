@@ -1,56 +1,61 @@
 <app-navbar></app-navbar>
-<div class="container-fluid">
+@if(loading){
+    <app-profile-skeleton></app-profile-skeleton>
+}
+@if(!loading){
+    <div class="container-fluid">
         <div class="row">
             <div class="col-9">
-                <div class="row row-section">
-                    <div class="col-3">
-                        <img style="width: 200px;" src="./assets/pfp-details-temp.png">
+                <div class="row row-section justify-content-between">
+                    <div class="col-2 fade">
+                        <img style="width: 150px;" src="./assets/pfp-default.png">
                     </div>
-                    <div class="col-9">
-                        <p class="mt-4" style="font-size: x-large; font-weight: bold;">{{this.cv.Name}}</p>
+                    <div class="col-9 fade">
+                        <p class="mt-3" style="font-size: x-large; font-weight: bold;">{{this.cv.Name}}</p>
+                        <p style="color: #736C6C; font-weight: 400; font-weight: 600;">{{this.cv.Headline}}</p>
                         <p style="color: #736C6C; font-weight: 400;">{{this.cv.Address}}</p>
-                    </div>
-                    <div class="row justify-content-end">
-                        <div class="col-12">
-                            <p style="float: inline-end; color: #553D8E; cursor: pointer;">+ Add your online presence</p>
-                        </div>
-                            
                     </div>
                     
                 </div>
                 <div class="row row-section">
-                    <div class="col-6">
-                        <p class="section-title">General Info:</p>
+                    <div class="col-6 fade mt-2">
+                        <p class="section-title fade">General Info:</p>
                         <p><span class="small-section-title">Age:</span> 29 Years</p>
                         <p><span class="small-section-title">Skills:</span>
+                            <ul>
                             @for(i of this.skillList; track i){
-                                <span>{{i}}, </span>
+                                <li>{{i}} </li>
                             }
+                            </ul>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 fade mt-2">
                         <p class="section-title">Contact Info:</p>
-                        <p><img style="width: 40px;" src="./assets/Call.png"><span class="small-section-title">{{this.cv.Phones}}</span></p>
+                        <p><img style="width: 40px;" src="./assets/Call.png"><span class="small-section-title">+{{this.cv.Phones}}</span></p>
                         <p><img style="width: 40px;" src="./assets/Envelope.png"><span class="small-section-title">{{this.cv.Email}}</span></p>
-                        <p><img style="width: 40px;" src="./assets/Download.png"> <button style="padding: 8px;" class="btn btn-primary">Download CV</button></p>
+                        <p><img style="width: 40px;" src="./assets/Download.png"> <button style="padding: 4px;" class="btn btn-primary">Download CV</button></p>
                     </div>
                 </div>
                 <div class="row row-section">
-                    <p class="section-title">Experience</p>
-                    <div class="col-9 mb-2">
-                            <p>{{this.cv.Experience}}</p>
+                    <p class="section-title fade">Experience</p>
+                    <div class="col-12 mb-2 fade">
+                            @for(i of expList; track i){
+                                <p>{{i}}</p>
+                                <hr>
+                            }
                     </div>
-                    <hr>
+                    
                 
                    
                 </div>
-                <div class="row row-section">
-                    <p class="section-title">Education</p>
-                    <div class="col-9 mb-2">
-                            <div class="col-9 mb-2">
-                                <p>{{this.cv.Educations || this.cv.Education}}</p>
+                <div class="row row-section ">
+                    <p class="section-title">Publications</p>
+                    <div class="col-12 mb-2 fade">
+                            <div class="col-9 mb-2 fade">
+                                @for(i of pubList; track i){
+                                    <p>{{i}}</p>
+                                    <hr>
+                                }
                             </div>
-                            <hr>
-                    
                     </div>
                 </div>
             </div>
@@ -98,3 +103,5 @@
             </div>
         </div>
     </div>
+}
+

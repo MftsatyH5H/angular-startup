@@ -12,13 +12,17 @@ import { CompanyProfileComponent } from "./components/company-profile/company-pr
 import { JobDetailsComponent } from "./components/job-details/job-details.component";
 import { UploadJobDescriptionComponent } from "./components/upload-job-description/upload-job-description.component";
 import { HttpClientModule } from '@angular/common/http';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NavbarComponent, FacialRecognitionComponent, UserSignupComponent, CommonModule, SigninComponent, NavbarSignInComponent, ProfileDetailsComponent, SignInCompanyComponent, CompanyProfileComponent, JobDetailsComponent, RouterOutlet, UploadJobDescriptionComponent, HttpClientModule],
+  imports: [NavbarComponent, FacialRecognitionComponent, UserSignupComponent, CommonModule, SigninComponent, NavbarSignInComponent, ProfileDetailsComponent, SignInCompanyComponent, CompanyProfileComponent, JobDetailsComponent, RouterOutlet, UploadJobDescriptionComponent, HttpClientModule,  FormsModule, ReactiveFormsModule, ToastModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  providers: [MessageService, CookieService]
 })
 export class AppComponent {
   title = 'angular-startup';

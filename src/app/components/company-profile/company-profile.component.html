@@ -1,53 +1,54 @@
 <app-navbar></app-navbar>
+@if(!loading){
 <div class="container-fluid">
         <div class="row">
             <div class="col-9">
                 <div class="row row-section">
                     <div class="col-3">
-                        <img class="rounded mt-5" style="width: 200px;" src="./assets/corelia-logo.png">
+                        <img class="fade rounded mt-3" style="width: 170px;" src="./assets/corelia-logo.png">
                     </div>
                     <div class="col-9">
-                        <p class="mt-4" style="font-size: x-large; font-weight: bold;">Corelia</p>
-                        <p style="color: #736C6C; font-weight: 500;">Information technology services </p>
-                        <p style="color: #736C6C; font-weight: 400;">Liverpool, United Kingdom . 220 employees</p>
+                        <span class="mt-4" class="company-name">Corelia</span>
+                        <p class="fade" style="color: #736C6C; font-weight: 500; margin-bottom: 3px;">Information technology services </p>
+                        <span class="fade"  style="color: #736C6C; font-weight: 400;">Liverpool, United Kingdom . 220 employees</span>
                     </div>
                     
                 </div>
                 <div class="row row-section">
                         <p class="section-title">Company Profile :</p>
                         <div class="col-6">
-                            <p>+44 123456789</p>
-                            <p>HR.com</p>
+                            <p class="fade" ><span class="section-header-small">Phone: </span>+44 123456789</p>
+                            <p class="fade" ><span class="section-header-small">E-mail: </span>HR.com</p>
                         </div>
                         <div class="col-6">
-                            <p>Company Size : 220 employees</p>
-                            <p>Industry : Information technology services  </p>
+                            <p class="fade" ><span class="section-header-small">Company Size :</span> 220 employees</p>
+                            <p class="fade" ><span class="section-header-small">Industry :</span> Information technology services  </p>
                         </div>
-                        <p>Location : Liverpool, United Kingdom</p>
-                        <p>Corelia is a 1-on-1 gameffied AI integration platform that connects new migrants with natives. You practice the new language using video chat with a native speaker moderated by AI to eventually be able to communicate with everyone and find your place in society.</p>
+                        <p class="fade"><span class="section-header-small">Location :</span> Liverpool, United Kingdom</p>
+                        <p class="fade" >Corelia is a 1-on-1 gameffied AI integration platform that connects new migrants with natives. You practice the new language using video chat with a native speaker moderated by AI to eventually be able to communicate with everyone and find your place in society.</p>
                 </div>
                 <div class="row row-section">
                     <p class="section-title">Open vacancies at Corelia</p>
-                    <p class="p-title-job mt-2">Senior PHP Laravel Developer</p>
+                    <p class="p-title-job mt-1">Senior PHP Laravel Developer</p>
                     <p class="p-title-job-desc">Google - Cairo, Egypt</p>
-                    <p class="">Experienced (Non-Manager) · 5-8 Yrs of Exp · HTML · Information Technology (IT) · Design · CSS ·  Science · Development · Software Development · PHP · Software · JavaScript · 51 minutes ago
+                    <p class="fade"  style="margin-top: -10px;">Experienced (Non-Manager) · 5-8 Yrs of Exp · HTML · Information Technology (IT) · Design · CSS ·  Science · Development · Software Development · PHP · Software · JavaScript · 51 minutes ago
                     </p>
                     <hr>
                     <p class="section-title">Open vacancies at Corelia</p>
                     <p class="p-title-job mt-2">Senior PHP Laravel Developer</p>
                     <p class="p-title-job-desc">Google - Cairo, Egypt</p>
-                    <p class="">Experienced (Non-Manager) · 5-8 Yrs of Exp · HTML · Information Technology (IT) · Design · CSS ·  Science · Development · Software Development · PHP · Software · JavaScript · 51 minutes ago
+                    <p class="fade"  style="margin-top: -10px;">Experienced (Non-Manager) · 5-8 Yrs of Exp · HTML · Information Technology (IT) · Design · CSS ·  Science · Development · Software Development · PHP · Software · JavaScript · 51 minutes ago
                     </p>
                 </div>
             </div>
             <div class="col-3">
-                <div class="row mt-4">
+                <div class="row fade ms-1 mt-4">
                     <div class="col-2">
                         <p-inputSwitch  />
                     </div>
                     
                     <div class="col-10 mt-1">
-                        <span class="small-section-title">Public Profile</span>
+                        <span class="small-section-title ms-1">Public Profile</span>
                     </div>
                     <div class="col-12">
                         <p style="margin-left: 4px;">Here is your public profile link:</p>
@@ -55,25 +56,25 @@
                         <hr>
                     </div>
                 </div>
-                <div class="row mt-2">
+                <div class="row fade ms-1 mt-2">
                     <div class="col-2">
                         <p-inputSwitch  />
                     </div>
                     
                     <div class="col-10 mt-1">
-                        <span class="small-section-title">Profile Visibility</span>
+                        <span class="small-section-title ms-1">Profile Visibility</span>
                     </div>
                     <div class="col-12">
                         <hr>
                     </div>
                 </div>
-                <div class="row mt-2">
+                <div class="row fade ms-1 mt-2">
                     <div class="col-2">
                         <p-inputSwitch  />
                     </div>
                     
                     <div class="col-10 mt-1">
-                        <span class="small-section-title">Available for immediate start</span>
+                        <span class="small-section-title ms-1">Available for immediate start</span>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-6 mt-3">
@@ -84,3 +85,8 @@
             </div>
         </div>
     </div>
+}
+@if(loading){
+ <app-profile-skeleton></app-profile-skeleton>
+}
+

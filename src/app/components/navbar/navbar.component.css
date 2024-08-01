@@ -1,9 +1,16 @@
 .navbar-text{
-    font-size: 25px;
+    font-size: 5.5mm;
+    font-weight: 400;
+    border: 0px;
+    background-color: #ffffff;
 }
 .divider{
     padding-left: 10px;
     padding-right: 10px;
     font-weight: bold;
     font-size: 6mm;
+}
+.navbar{
+    padding-left: 6vw;
+    padding-right: 6vw;
 }

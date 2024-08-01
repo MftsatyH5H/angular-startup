@@ -7,12 +7,14 @@ import { ProfileDetailsComponent } from './components/profile-details/profile-de
 import { CompanyProfileComponent } from './components/company-profile/company-profile.component';
 import { JobDetailsComponent } from './components/job-details/job-details.component';
 import { UploadJobDescriptionComponent } from './components/upload-job-description/upload-job-description.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 export const routes: Routes = [
     { path: '', component: SigninComponent },
+    { path: 'signUp', component: SignUpComponent },
     { path: 'company', component: SignInCompanyComponent },
     { path: 'uploadCv', component: UserSignupComponent },
-    { path: 'profile', component: ProfileDetailsComponent },
+    { path: 'profile/:id', component: ProfileDetailsComponent },
     { path: 'companyProfile', component: CompanyProfileComponent },
     { path: 'jobDescription', component: JobDetailsComponent },
     { path: 'uploadJob', component: UploadJobDescriptionComponent },

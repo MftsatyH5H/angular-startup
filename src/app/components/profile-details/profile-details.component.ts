@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { InputSwitchModule } from 'primeng/inputswitch';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CvDataService } from '../cv-data.service';
 import { NgFor } from '@angular/common';
+import { ProfileSkeletonComponent } from "../profile-skeleton/profile-skeleton.component";
 @Component({
   selector: 'app-profile-details',
   standalone: true,
-  imports: [NavbarComponent, InputSwitchModule, NgFor],
+  imports: [NavbarComponent, InputSwitchModule, NgFor, ProfileSkeletonComponent],
   templateUrl: './profile-details.component.html',
   styleUrl: './profile-details.component.css'
 })
@@ -15,12 +16,28 @@ export class ProfileDetailsComponent implements OnInit {
   cvId: any
   cv: any
   skillList: any
-  constructor(private router: Router, private cvDataService: CvDataService) {}
+  id: any
+  loading: boolean = true
+  expList: string[] = [];
+  pubList: string[] = [];
+  constructor(private router: Router, private cvDataService: CvDataService, private route: ActivatedRoute) {}
   
   ngOnInit():void {
-    this.cv = this.cvDataService.getCv();
-    console.log(this.cv);
-    this.skillList = this.cv.Skills.split('\n');
+    this.route.paramMap.subscribe(params => {
+      this.id = params.get('id');
+    });
+    this.cvDataService.getCvData(this.id).subscribe((response) => {
+      console.log(response.data);
+      this.cv = response.data;
+      this.skillList = this.cv.Skills.split('\n');
+      this.expList = this.cv.Experience.split('Job Title:');
+      this.pubList = this.cv.Publications.split('Title:');
+      console.log(this.expList);
+      this.loading = false
+    }, (error) => {
+      console.log(error);
+    });
+
     // this.cvId = this.cvDataService.getCvID();
     // console.log(this.cvId)
     // this.cvDataService.getCvData(this.cvId).subscribe((response) => {
