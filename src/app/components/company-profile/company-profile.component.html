@@ -8,17 +8,17 @@
                         <img class="fade rounded mt-3" style="width: 170px;" src="./assets/corelia-logo.png">
                     </div>
                     <div class="col-9">
-                        <span class="mt-4" class="company-name">Corelia</span>
+                        <span class="mt-4" class="company-name">{{this.parsedToken.name}}</span>
                         <p class="fade" style="color: #736C6C; font-weight: 500; margin-bottom: 3px;">Information technology services </p>
-                        <span class="fade"  style="color: #736C6C; font-weight: 400;">Liverpool, United Kingdom . 220 employees</span>
+                        <span class="fade"  style="color: #736C6C; font-weight: 400;">{{this.parsedToken.address}} . 220 employees</span>
                     </div>
                     
                 </div>
                 <div class="row row-section">
                         <p class="section-title">Company Profile :</p>
                         <div class="col-6">
-                            <p class="fade" ><span class="section-header-small">Phone: </span>+44 123456789</p>
-                            <p class="fade" ><span class="section-header-small">E-mail: </span>HR.com</p>
+                            <p class="fade" ><span class="section-header-small">Phone: </span>+{{this.parsedToken.phone}}</p>
+                            <p class="fade" ><span class="section-header-small">E-mail: </span>{{this.parsedToken.email}}</p>
                         </div>
                         <div class="col-6">
                             <p class="fade" ><span class="section-header-small">Company Size :</span> 220 employees</p>
@@ -28,17 +28,14 @@
                         <p class="fade" >Corelia is a 1-on-1 gameffied AI integration platform that connects new migrants with natives. You practice the new language using video chat with a native speaker moderated by AI to eventually be able to communicate with everyone and find your place in society.</p>
                 </div>
                 <div class="row row-section">
-                    <p class="section-title">Open vacancies at Corelia</p>
-                    <p class="p-title-job mt-1">Senior PHP Laravel Developer</p>
-                    <p class="p-title-job-desc">Google - Cairo, Egypt</p>
-                    <p class="fade"  style="margin-top: -10px;">Experienced (Non-Manager) · 5-8 Yrs of Exp · HTML · Information Technology (IT) · Design · CSS ·  Science · Development · Software Development · PHP · Software · JavaScript · 51 minutes ago
+                    <p class="section-title">Open vacancies</p>
+                    @for(i of mappedOpenVac; track i;){
+                        <p (click)="navigateToJob(i.id)" class="p-title-job mt-2">{{i.role}}</p>
+                    <p  class="p-title-job-desc">Corelia - Cairo, Egypt</p>
+                    <p class="">{{i.qualifications}}
                     </p>
                     <hr>
-                    <p class="section-title">Open vacancies at Corelia</p>
-                    <p class="p-title-job mt-2">Senior PHP Laravel Developer</p>
-                    <p class="p-title-job-desc">Google - Cairo, Egypt</p>
-                    <p class="fade"  style="margin-top: -10px;">Experienced (Non-Manager) · 5-8 Yrs of Exp · HTML · Information Technology (IT) · Design · CSS ·  Science · Development · Software Development · PHP · Software · JavaScript · 51 minutes ago
-                    </p>
+                    }
                 </div>
             </div>
             <div class="col-3">

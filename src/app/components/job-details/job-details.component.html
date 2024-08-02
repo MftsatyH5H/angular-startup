@@ -5,64 +5,70 @@
                 <div class="row row-section">
                     
                     <div class="col-9">
-                        <p class="mt-4" style="font-size: x-large; font-weight: bold;">{{this.job["Role Scope"]}}</p>
+                        <p class="mt-4" style="font-size: x-large; font-weight: bold;">{{this.title}}</p>
                         <h4><span class="badge bg-secondary">Full Time</span> <span style="margin-left: 10px;" class="badge bg-secondary">Remote</span></h4>
                         <p style="color: #736C6C; font-weight: 500;">Corelia -Paris, France </p>
                         <p style="color: #736C6C; font-weight: 400;">Posted 4 hours ago</p>
                         <p style="font-size: x-large; font-weight: bold;">220 <span style="font-weight: lighter;">Applicants open for 1 position</span></p>
-                        <button class="btn btn-primary">Download Applicants</button>
+                        <button style="width: 200px;" class="btn btn-primary">Download Applicants</button>
                     </div>
-                    <div class="col-3">
+                    <div class="col-3 mt-4">
                         <img class="rounded mt-5" style="width: 200px;" src="./assets/corelia-logo.png">
                     </div>
                     
                 </div>
                 <div class="row row-section">
                         <p class="section-title">Job Details</p>
-                        <p>{{this.job.Responsibilities}}</p>
+                        <ul>
+                        @for(i of resList; track i;){
+                            <li style="margin-left: 20px;">{{i}}</li>
+                        }
+                        </ul>
                 </div>
             <div class="row row-section">
                 <p class="section-title">Job Requirement</p>
-                    <p>{{this.job.Qualifications}}</p>
+                <ul>
+                    @for(i of reqList; track i;){
+                        <li style="margin-left: 20px;">{{i}}</li>
+                    }
+                    </ul>
         </div>
                 <div class="row row-section">
-                    <p class="section-title">Open vacancies at Corelia</p>
-                    <p class="p-title-job mt-2">Senior PHP Laravel Developer</p>
-                    <p class="p-title-job-desc">Google - Cairo, Egypt</p>
-                    <p class="">Experienced (Non-Manager) · 5-8 Yrs of Exp · HTML · Information Technology (IT) · Design · CSS ·  Science · Development · Software Development · PHP · Software · JavaScript · 51 minutes ago
+                    <p class="section-title">Open vacancies</p>
+                    @for(i of mappedOpenVac; track i;){
+                        <p (click)="navigateToJob(i.id)" class="p-title-job mt-2">{{i.role}}</p>
+                    <p class="p-title-job-desc">Corelia - Cairo, Egypt</p>
+                    <p class="">{{i.qualifications}}
                     </p>
                     <hr>
-                    <p class="section-title">Open vacancies at Corelia</p>
-                    <p class="p-title-job mt-2">Senior PHP Laravel Developer</p>
-                    <p class="p-title-job-desc">Google - Cairo, Egypt</p>
-                    <p class="">Experienced (Non-Manager) · 5-8 Yrs of Exp · HTML · Information Technology (IT) · Design · CSS ·  Science · Development · Software Development · PHP · Software · JavaScript · 51 minutes ago
-                    </p>
+                    }
+                    
                 </div>
             </div>
             <div class="col-3">
                 <div class="row justify-content-center">
                     <div class="col-11">
-                        <div class="row row-section mt-4">
-                            <p style="color: #553D8E; font-weight: bold; font-size: x-large;">Nuraldin Usama Qutb</p>
-                            <p>94%</p>
+                        <div class="row row-section mt-3">
+                            <span class="p-candidate-title">Nuraldin Usama Qutb</span>
+                            <p class="p-candidate-desc">94%</p>
                             <p>3 minutes ago</p>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-11">
-                        <div class="row row-section mt-4">
-                            <p style="color: #553D8E; font-weight: bold; font-size: x-large;">Mohamed Ibrahim Abbas</p>
-                            <p>86%</p>
+                        <div class="row row-section mt-3">
+                            <span class="p-candidate-title">Mohamed Ibrahim Abbas</span>
+                            <p class="p-candidate-desc">86%</p>
                             <p>5 minutes ago</p>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-11">
-                        <div class="row row-section mt-4">
-                            <p style="color: #553D8E; font-weight: bold; font-size: x-large;">Mohamed Alaa Motaman</p>
-                            <p>28%</p>
+                        <div class="row row-section mt-3">
+                            <span class="p-candidate-title">Mohamed Alaa Motaman</span>
+                            <p class="p-candidate-desc">28%</p>
                             <p>8 minutes ago</p>
                         </div>
                     </div>

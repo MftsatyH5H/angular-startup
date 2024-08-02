@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { CvDataService } from '../cv-data.service';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { AuthService } from '../auth.service';
+import { jwtDecode } from 'jwt-decode';
 @Component({
   selector: 'app-upload-job-description',
   standalone: true,
@@ -15,10 +17,11 @@ export class UploadJobDescriptionComponent {
   selectedFile: any
   errHead: string = '';
   errBody: string = '';
+  token: any
   @ViewChild('fileInput') fileInput: ElementRef | undefined;
-  constructor(private router: Router, private cvDataService: CvDataService) {}
-  navigateToDest() {
-    this.router.navigate(['/jobDescription']);
+  constructor(private router: Router, private cvDataService: CvDataService, private auth: AuthService) {}
+  navigateToDest(id: string) {
+    this.router.navigate(['/jobDescription/' +id]);
   }
   navigateToDest2() {
     this.router.navigate(['/companyProfile']);
@@ -42,14 +45,19 @@ export class UploadJobDescriptionComponent {
   uploadFile(){
     const formData: FormData = new FormData();
     this.loading = true;
-    formData.append('file', this.selectedFile, this.selectedFile.name);
-    this.cvDataService.ExtractJobData(formData).subscribe((response) => {
+    this.token = jwtDecode(this.auth.getToken());
+    const formdata = new FormData();
+    formdata.append('company', this.token.id);
+    console.log(this.token.id)
+    formdata.append('description', this.selectedFile)
+    this.cvDataService.getJob(formdata).subscribe((response: { extracted: any; }) => {
       console.log(response);
       this.loading = false;
-      this.cvDataService.setJob(response.extracted);
-      this.navigateToDest();
+      // this.cvDataService.setJob(response.extracted);
+      //@ts-ignore
+      this.navigateToDest(response._id);
       
-    },((error) => {
+    },((error: any) => {
       console.log(error);
       this.loading = false;
     }))

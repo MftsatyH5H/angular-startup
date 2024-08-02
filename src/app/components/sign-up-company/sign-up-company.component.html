@@ -3,7 +3,7 @@
     <app-navbar-sign-in-company></app-navbar-sign-in-company>
     <div class="container">
         <div class="row justify-content-center align-items-center min-vh-100">
-            <div style="margin-bottom: 30vh;" class="col-7">
+            <div style="margin-bottom: 23vh;" class="col-7">
                 <p style="margin-top: 15vh;" class="p-desc"><img src="assets/check.png">Reach 2,000,000+ qualified candidates.</p>
                 <p class="p-desc"><img src="assets/check.png">Easily post professionally written jobs.</p>
                 <p class="p-desc"><img src="assets/check.png">Hire top talent faster and smarter.</p>
@@ -14,10 +14,25 @@
             </div>
             <div style="margin-bottom: 23vh;" class="col-5 col-signin">
                 <div class="login-title mt-3">
-                    <p style="font-size: 5.5mm;">Sign Up and Start Applying For Jobs</p>
+                    <p style="font-size: 5.5mm;">Sign In as a Company Account to Start Hiring Now</p>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-12">
+                        <div class="row justify-content-between">
+                            <div class="col-6">
+                                <div class="form-group mt-2">
+                                    <label style="font-weight: 500;">Business Email</label>
+                                    <input type="email" [(ngModel)]="email" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group mt-2">
+                                    <label style="font-weight: 500;">Company Name</label>
+                                    <input type="text" [(ngModel)]="name" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="row justify-content-between">
                             <div class="col-6">
                                 <div class="form-group mt-2">
@@ -33,10 +48,6 @@
                             </div>
                         </div>
                         <div class="form-group mt-2">
-                            <label style="font-weight: 500;">Email</label>
-                            <input type="email" [(ngModel)]="email" class="form-control">
-                        </div>
-                        <div class="form-group mt-2">
                             <label style="font-weight: 500;">Password</label>
                             <input type="password" [(ngModel)]="password" class="form-control">
                         </div>
@@ -45,23 +56,21 @@
                             <input type="text" [(ngModel)]="number" class="form-control">
                         </div>
                         <div class="d-flex justify-content-between">
-                            <div class="form-check mt-2">
+                            <div class="form-check mt-4">
                                 <input type="checkbox" class="form-check-input mt-2" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Remember me</label>
                             </div>
-                            <a class="mt-2" href="">Forgot Password?</a>
+                            <a class="mt-4" href="">Forgot Password?</a>
                         </div>
                     </div>
-                    <button class="btn btn-primary mt-2" (click)="signUp()">Sign Up</button>
+                    <button class="btn btn-primary mt-4" (click)="signUp()">Sign Up</button>
                 </div>
-                <hr class="mt-1">
-                <div class="login-title mt-1">
-                    <p style="font-weight: 500;">Already have an account? <a href="" (click)="navigateToLogin()">Sign in</a></p>
+                <hr class="mt-2">
+                <div class="login-title mt-3">
+                    <p style="font-weight: 500;">Don't have an account? <a href="">Sign Up</a></p>
                 </div>
             </div>
-            
+            <p-toast />
         </div>
     </div>
-    <p-toast />
-    <app-error-component [errBody]="errBody" [errHead]="errHead"></app-error-component>
 </div>

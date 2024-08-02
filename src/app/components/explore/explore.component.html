@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-9">
+                <div class="row row-section">
+                    <p class="section-title">Open vacancies</p>
+                    @for(i of openVac; track i;){
+                        <p (click)="navigateToJob(i._id)" class="p-title-job mt-2">{{i.Role?.split('\n')[0] || i.title}}</p>
+                    <p class="p-title-job-desc">Corelia - Cairo, Egypt</p>
+                    <p class="">{{i.Qualifications}}
+                    </p>
+                    <hr>
+                    }
+                    
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="row mt-4">
+                    <div class="col-2">
+                        <p-inputSwitch  />
+                    </div>
+                    
+                    <div class="col-10 mt-1">
+                        <span class="small-section-title">Public Profile</span>
+                    </div>
+                    <div class="col-12">
+                        <p style="margin-left: 4px;">Here is your public profile link:</p>
+                        <p style="margin-left: 4px; color: #553D8E;">corelia.ai/me/mohamedali</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-2">
+                        <p-inputSwitch  />
+                    </div>
+                    
+                    <div class="col-10 mt-1">
+                        <span class="small-section-title">Profile Visibility</span>
+                    </div>
+                    <div class="col-12">
+                        <hr>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-2">
+                        <p-inputSwitch  />
+                    </div>
+                    
+                    <div class="col-10 mt-1">
+                        <span class="small-section-title">Available for immediate start</span>
+                    </div>
+                </div>
+                <div style="margin: 5px;" class="row row-section mt-5">
+                    <p style="font-weight: 600; font-size: large;">Languages:</p>
+                    <p style="font-weight: 500; font-size: large;" class="mt-2">Arabic</p>
+                    <span style="font-size: x-large;">★ ★ ★ ★ ★</span>
+                    <p style="font-weight: 500; font-size: large;" class="mt-2">English</p>
+                    <span style="font-size: x-large;">★ ★ ★ ★ ☆</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

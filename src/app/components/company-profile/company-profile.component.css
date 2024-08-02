@@ -92,7 +92,8 @@
     font-weight: 700;
     font-size: 5mm;
     animation-name: fade-in;
-    animation-duration: 0.5s
+    animation-duration: 0.5s;
+    cursor: pointer
 }
 .p-title-job-desc{
     color: #736C6C;

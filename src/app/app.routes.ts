@@ -8,6 +8,8 @@ import { CompanyProfileComponent } from './components/company-profile/company-pr
 import { JobDetailsComponent } from './components/job-details/job-details.component';
 import { UploadJobDescriptionComponent } from './components/upload-job-description/upload-job-description.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { SignUpCompanyComponent } from './components/sign-up-company/sign-up-company.component';
+import { ExploreComponent } from './components/explore/explore.component';
 
 export const routes: Routes = [
     { path: '', component: SigninComponent },
@@ -16,8 +18,10 @@ export const routes: Routes = [
     { path: 'uploadCv', component: UserSignupComponent },
     { path: 'profile/:id', component: ProfileDetailsComponent },
     { path: 'companyProfile', component: CompanyProfileComponent },
-    { path: 'jobDescription', component: JobDetailsComponent },
+    { path: 'jobDescription/:id', component: JobDetailsComponent },
     { path: 'uploadJob', component: UploadJobDescriptionComponent },
+    { path: 'signUpCompany', component: SignUpCompanyComponent },
+    { path: 'explore', component: ExploreComponent },
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
