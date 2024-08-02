@@ -14,6 +14,7 @@ export class CvDataService {
   private apiUrlJob = this.backend + '/api/v1/jobs';
   private apiUrlGet = this.backend +"/api/v1/cvs/"
   private apiGetAllJobs = this.backend + '/api/v1/jobs/'
+  private apiGetAllUsers = this.backend + '/api/v1/users/'
   constructor(private http: HttpClient) { }
 
   setCvId(data: any): void {
@@ -41,6 +42,9 @@ export class CvDataService {
   }
   getAllCompanyJobs(): any{
     return this.http.get(this.apiGetAllJobs);
+  }
+  getAllUsers(){
+    return this.http.get(this.apiGetAllUsers);
   }
   ExtractCvData(formData: any, token: any): Observable<any> {
     console.log(this.apiUrl)

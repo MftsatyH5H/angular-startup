@@ -46,33 +46,17 @@
                 </div>
             </div>
             <div class="col-3">
-                <div class="row justify-content-center">
-                    <div class="col-11">
-                        <div class="row row-section mt-3">
-                            <span class="p-candidate-title">Nuraldin Usama Qutb</span>
-                            <p class="p-candidate-desc">94%</p>
-                            <p>3 minutes ago</p>
+                @for(i of users; track i){
+                    <div class="row justify-content-center">
+                        <div class="col-11">
+                            <div class="row row-section mt-3">
+                                <span class="p-candidate-title">{{i.firstName}} {{i.lastName}}</span>
+                                <p class="p-candidate-desc">{{generateNumber()}} %</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-11">
-                        <div class="row row-section mt-3">
-                            <span class="p-candidate-title">Mohamed Ibrahim Abbas</span>
-                            <p class="p-candidate-desc">86%</p>
-                            <p>5 minutes ago</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-11">
-                        <div class="row row-section mt-3">
-                            <span class="p-candidate-title">Mohamed Alaa Motaman</span>
-                            <p class="p-candidate-desc">28%</p>
-                            <p>8 minutes ago</p>
-                        </div>
-                    </div>
+                }
+                
                 </div>
             </div>
         </div>
-    </div>

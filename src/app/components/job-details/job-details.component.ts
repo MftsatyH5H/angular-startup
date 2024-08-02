@@ -27,6 +27,7 @@ export class JobDetailsComponent implements OnInit {
   jobId: any
   openVac: any
   mappedOpenVac: any
+  users: any
   ngOnInit():void {
     this.route.paramMap.subscribe(params => {
       this.jobId = params.get('id');
@@ -47,8 +48,13 @@ export class JobDetailsComponent implements OnInit {
           role: element.Role.split('\n')[0]
         };
       });
-      console.log(this.mappedOpenVac)
+      this.cvDataService.getAllUsers().subscribe((response: any) => {
+        this.users = response.users;
+      });
+      console.log(this.mappedOpenVac);
+
     })
+  
    //   this.info = JSON.parse(response);
    //   this.data = JSON.parse(this.info);
    //   if(this.data.professional_experience || this.data.Professional_Experience || this.data.professional_Experience || this.data.Professional_experience || this.data.professionalExperience || this.data.ProfessionalExperience){
@@ -61,4 +67,5 @@ export class JobDetailsComponent implements OnInit {
    navigateToJob(id: string) {
     this.router.navigate(['/jobDescription/' +id]);
   }
+  generateNumber(){return Math.floor(Math.random() * (60 - 55 + 1)) + 55;};
 }
