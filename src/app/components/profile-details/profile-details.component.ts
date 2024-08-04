@@ -29,10 +29,11 @@ export class ProfileDetailsComponent implements OnInit {
     this.cvDataService.getCvData(this.id).subscribe((response) => {
       console.log(response.data);
       this.cv = response.data;
-      this.skillList = this.cv.Skills.split('\n');
-      this.expList = this.cv.Experience.split('Job Title:');
-      this.pubList = this.cv.Publications.split('Title:');
+      this.skillList = this.cv.Skills?.split('\n');
+      this.expList = this.cv.Experience?.split('\n');
+      this.pubList = this.cv.Publications?.split('Title:');
       console.log(this.expList);
+      console.log(this.pubList);
       this.loading = false
     }, (error) => {
       console.log(error);

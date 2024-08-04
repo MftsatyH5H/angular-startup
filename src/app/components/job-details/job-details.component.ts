@@ -49,7 +49,11 @@ export class JobDetailsComponent implements OnInit {
         };
       });
       this.cvDataService.getAllUsers().subscribe((response: any) => {
-        this.users = response.users;
+        const userss =  response.users;
+        const usersss = userss.map((user: any) => {
+          return {firstName: user.firstName, lastName: user.lastName, score: this.generateNumber()}
+        })
+        this.users = usersss.sort((a: { score: number; }, b: { score: number; }) => b.score - a.score);
       });
       console.log(this.mappedOpenVac);
 
@@ -67,5 +71,5 @@ export class JobDetailsComponent implements OnInit {
    navigateToJob(id: string) {
     this.router.navigate(['/jobDescription/' +id]);
   }
-  generateNumber(){return Math.floor(Math.random() * (60 - 55 + 1)) + 55;};
+  generateNumber(){return Math.floor(Math.random() * (87 - 55 + 1)) + 55;};
 }
