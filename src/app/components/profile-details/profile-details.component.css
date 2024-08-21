@@ -63,6 +63,12 @@
     animation-name: fade-in;
     animation-duration: 0.5s
 }
+.btn-small{
+    background-color: #ffff;
+    color: #553D8E;
+    border: 0px;
+    
+}
 .text-large{
     color: #736C6C;
     font-size: larger;

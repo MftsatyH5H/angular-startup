@@ -6,12 +6,26 @@
       <div style="margin-left: 4mm;" class="collapse navbar-collapse" id="navbarNav">
         <button class="navbar-text" (click)="navigateToExplore()">Explore</button>
       </div>
-      <div>
+      <div class="navbar-menu-container">
         <img style="width: 35px;" src="./assets/bell.png">
         <span class="divider">|</span>
         <img style="width: 35px;" src="./assets/comments.png">
         <span class="divider">|</span>
-        <img class="img" style="width: 30px;" src="./assets/pfp-temp.png">
+        <div (click)="this.profileMenu = !this.profileMenu" class="circle">
+          {{firstInitial}}{{lastInitial}}
+        </div>
+        @if(this.profileMenu){
+          <div class="profile-menu">
+            @if(isEditingProfile === false){
+              <button (click)="goToProfile()">My profile</button>
+            }
+            @if(token.role !== 'company'){
+              <button (click)="editProfile()">Edit Profile</button>
+            }
+            <button (click)="logout()">Logout</button>
+          </div>
+        }
+        
       </div>
       
     </div>

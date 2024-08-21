@@ -5,6 +5,7 @@ import { ToastModule } from 'primeng/toast';
 import { AuthService } from '../auth.service';
 import { FormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';
+import { CvDataService } from '../cv-data.service';
 @Component({
   selector: 'app-signin',
   standalone: true,
@@ -16,7 +17,7 @@ export class SigninComponent {
   email :string = '';
   password: string = '';
   apiResponse: any
-  constructor(private router: Router, private authService: AuthService, private messageService: MessageService) {}
+  constructor(private router: Router, private authService: AuthService, private messageService: MessageService, private cvDataService: CvDataService) {}
   navigateToDest() {
     this.router.navigate(['/uploadCv']);
   }
@@ -34,7 +35,16 @@ export class SigninComponent {
     this.authService.login(user).subscribe((response) => {
       this.apiResponse = response;
       this.authService.setToken(this.apiResponse.token);
-      this.navigateToDest();
+      const token = this.authService.getTokenObject();
+      const id = token.id
+      this.cvDataService.getCvData(id).subscribe((response) => {
+        console.log(response);
+        this.router.navigate(['/profile/' + id]);
+      },
+      (error) => {
+        this.navigateToDest();
+      }
+    )
     },(error) => {
       this.messageService.add({ severity: 'error', summary: 'Sign in Failed', detail: error.error.message });
       console.log(error);

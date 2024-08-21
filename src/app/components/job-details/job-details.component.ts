@@ -5,10 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CvDataService } from '../cv-data.service';
 import { AuthService } from '../auth.service';
 import { jwtDecode } from 'jwt-decode';
+import { JobCandidatesComponent } from "../job-candidates/job-candidates.component";
 @Component({
   selector: 'app-job-details',
   standalone: true,
-  imports: [NavbarComponent, InputSwitchModule],
+  imports: [NavbarComponent, InputSwitchModule, JobCandidatesComponent],
   templateUrl: './job-details.component.html',
   styleUrl: './job-details.component.css'
 })
@@ -48,25 +49,9 @@ export class JobDetailsComponent implements OnInit {
           role: element.Role.split('\n')[0]
         };
       });
-      this.cvDataService.getAllUsers().subscribe((response: any) => {
-        const userss =  response.users;
-        const usersss = userss.map((user: any) => {
-          return {firstName: user.firstName, lastName: user.lastName, score: this.generateNumber()}
-        })
-        this.users = usersss.sort((a: { score: number; }, b: { score: number; }) => b.score - a.score);
-      });
       console.log(this.mappedOpenVac);
 
-    })
-  
-   //   this.info = JSON.parse(response);
-   //   this.data = JSON.parse(this.info);
-   //   if(this.data.professional_experience || this.data.Professional_Experience || this.data.professional_Experience || this.data.Professional_experience || this.data.professionalExperience || this.data.ProfessionalExperience){
-   //     this.exp = Object.entries(this.data.professional_experience || this.data.Professional_Experience || this.data.professional_Experience || this.data.Professional_experience || this.data.professionalExperience || this.data.ProfessionalExperience).map(item => item[1])
-   //     console.log("exp",this.exp)
-   //   }
-   //   console.log(this.data);
- 
+    }) 
    }
    navigateToJob(id: string) {
     this.router.navigate(['/jobDescription/' +id]);

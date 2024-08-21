@@ -46,17 +46,7 @@
                 </div>
             </div>
             <div class="col-3">
-                @for(i of users; track i){
-                    <div class="row justify-content-center">
-                        <div class="col-11">
-                            <div class="row row-section mt-3">
-                                <span class="p-candidate-title">{{i.firstName}} {{i.lastName}}</span>
-                                <p class="p-candidate-desc">{{i.score}} %</p>
-                            </div>
-                        </div>
-                    </div>
-                }
-                
+                <app-job-candidates [JobId]="jobId" />
                 </div>
             </div>
         </div>

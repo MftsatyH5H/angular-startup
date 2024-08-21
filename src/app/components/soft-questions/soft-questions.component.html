@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+@if(!this.loadingFinish){
+    <div class="container-fluid">
+        <div class="row justify-content-between">
+            <div class="col-7 mt-3">
+                
+                @for(i of currentQuestions; track i){
+                    @for(j of i.questions; track j; let index = $index){
+                        <div class="row row-section mt-2 mb-2">
+                            <p class="p-question-title">{{j.Q}}</p>
+                            <div class="radio-group">
+                                @for(k of getAnswers(j.A); track k){
+                                    <div (change)="changeValue(k,j,i.category, index)" class="form-check mt-3">
+                                        <input class="form-check-input" type="radio" [name]="j.Q" id="option" value="option">
+                                        <label class="form-check-label" for="option">
+                                          {{k}}
+                                        </label>
+                                      </div>
+                                }
+                                
+                              </div>
+                              
+                        </div>
+                    }
+                    
+                }
+            </div>
+            <!-- Timer section -->
+            <div class="col-4 mt-3 timer-container">
+                <div class="row row-section-timer">
+                    <div class="middle-text">
+                        <p class="p-timer-title">Time Remaining</p>
+                        <p style="font-size: xx-large;" class="p-timer-title">{{minutes}} : {{seconds}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row justify-content-end">
+            <div class="col-2 mb-3">
+                <button (click)="changePage()" class="btn btn-primary">Save and Continue</button>
+            </div>
+        </div>
+    </div>
+}
+@if(this.loadingFinish){
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <div class="middle-text">
+                    <p style="font-weight: bold; font-size: larger;">Finalizing Results</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+}

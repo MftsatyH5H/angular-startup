@@ -10,6 +10,7 @@ import { UploadJobDescriptionComponent } from './components/upload-job-descripti
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SignUpCompanyComponent } from './components/sign-up-company/sign-up-company.component';
 import { ExploreComponent } from './components/explore/explore.component';
+import { SoftQuestionsComponent } from './components/soft-questions/soft-questions.component';
 
 export const routes: Routes = [
     { path: '', component: SigninComponent },
@@ -17,6 +18,7 @@ export const routes: Routes = [
     { path: 'company', component: SignInCompanyComponent },
     { path: 'uploadCv', component: UserSignupComponent },
     { path: 'profile/:id', component: ProfileDetailsComponent },
+    { path: 'soft-skills', component: SoftQuestionsComponent },
     { path: 'companyProfile', component: CompanyProfileComponent },
     { path: 'jobDescription/:id', component: JobDetailsComponent },
     { path: 'uploadJob', component: UploadJobDescriptionComponent },

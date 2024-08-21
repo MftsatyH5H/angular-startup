@@ -3,15 +3,6 @@
     padding-left: 6vw;
     padding-right: 6vw;
 }
-.section-button{
-    background-color: #ffffff;
-    color: #553D8E;
-    font-size: larger;
-    font-weight: 600;
-    border: 0px;
-    padding: 15px;
-    
-}
 .company-name{
     font-size: x-large;
     font-weight: 400;
@@ -33,16 +24,38 @@
     padding: 12px;
     border: 0.5px solid rgba(221, 221, 221, 0.39);
 }
+.row-button{
+    margin-bottom: 10px;
+    padding: 10px;
+    margin-left: 2px;
+    background-color: #f4f2ee;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.selectedRowButton{
+    margin-bottom: 10px;
+    padding: 10px;
+    margin-left: 2px;
+    background-color: #553D8E;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.row-button:hover{
+    background-color: #7651ca;
+    color: white;
+    transition: 0.25s;
+}
 .p-warning{
     color: #968A8A;
 }
 .section-title{
-    font-size: 5mm;
+    font-size: 4mm;
     font-weight: 600;
-    animation-name: fade-in;
-    animation-duration: 0.5s;
-    animation-name: fade-in;
-    animation-duration: 0.5s
 }
 .section-header-small{
     color: #222222;
@@ -71,6 +84,12 @@
     width: 200px;
     animation-name: fade-in;
     animation-duration: 0.5s
+}
+.btn-small{
+    background-color: #ffff;
+    color: #553D8E;
+    border: 0px;
+    
 }
 .text-large{
     color: #736C6C;
@@ -101,8 +120,7 @@
     font-weight: 700;
     font-size: 5mm;
     animation-name: fade-in;
-    animation-duration: 0.5s;
-    cursor: pointer
+    animation-duration: 0.5s
 }
 .p-title-job-desc{
     color: #736C6C;
@@ -111,15 +129,6 @@
     margin-top: -10px;
     animation-name: fade-in;
     animation-duration: 0.5s
-}
-.p-candidate-title{
-    font-size: large;
-    font-weight: 600;
-    color: #553D8E;
-}
-.p-candidate-desc{
-    font-size: 600;
-    color: #736C6C;
 }
 .small-input-switch {
 

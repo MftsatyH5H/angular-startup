@@ -3,15 +3,6 @@
     padding-left: 6vw;
     padding-right: 6vw;
 }
-.section-button{
-    background-color: #ffffff;
-    color: #553D8E;
-    font-size: larger;
-    font-weight: 600;
-    border: 0px;
-    padding: 15px;
-    
-}
 .company-name{
     font-size: x-large;
     font-weight: 400;
@@ -32,6 +23,13 @@
     margin-top: 20px;
     padding: 12px;
     border: 0.5px solid rgba(221, 221, 221, 0.39);
+    transition: 0.5s;
+    cursor: pointer;
+    animation: fade-in 0.5s;
+}
+.row-section:hover{
+    border: 1px solid #6c3ae0;
+    transition: 0.5s;
 }
 .p-warning{
     color: #968A8A;
@@ -116,6 +114,12 @@
     font-size: large;
     font-weight: 600;
     color: #553D8E;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.p-candidate-title:hover{
+    color: #6c3ae0;
+    transition: 0.5s;
 }
 .p-candidate-desc{
     font-size: 600;

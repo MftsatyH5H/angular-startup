@@ -1,0 +1,48 @@
+<div style="margin: 5px;" class="row row-section mt-5">
+    <p class="section-title">Skills Chart</p>
+    <img [src]="imgSrc">
+    <div id="softSkills" (click)="changeChartChoice('softSkills')" class="row selectedRowButton justify-content-between">
+        <div class="col-8"><span>Soft Skills:</span></div>
+        <div class="col-3"><span>{{softSkillsPercentage}}%</span></div>    
+    </div>
+
+    <div id="techSkills" (click)="changeChartChoice('techSkills')" class="row row-button justify-content-between">
+        <div class="col-9"><span>Tech Skills:</span></div>
+        <div class="col"><span>{{technicalSkillsPercentage}}%</span></div>    
+    </div>
+
+    <div id="facialRecognition" (click)="changeChartChoice('facialRecognition')" class="row row-button justify-content-between">
+        <div class="col-8"><span>Facial Recognition:</span></div>
+        <div class="col-3"><span>{{facialRecognitionPercentage}}%</span></div>    
+    </div>
+    <div id="TotalPercentage" (click)="changeChartChoice('TotalPercentage')" class="row row-button justify-content-between">
+        <div class="col-8"><span>Total Percentage:</span></div>
+        <div class="col-3"><span>{{totalPercentage}}%</span></div>    
+    </div>
+    
+</div>
+<div style="margin: 5px;" class="row row-section mt-3">
+    <p class="section-title">Facial Recognition</p>
+    <hr>
+    @for(i of userObject.facialRecognition; track i){
+        <div style="font-size: 4mm; font-weight: 500;" class="row justify-content-between">
+            <div class="col-8 mb-2"><span>{{i.Class}}:</span></div>
+            <div class="col-3 mb-2"><span>{{i.Percentage}}%</span></div>    
+        </div>
+    }
+    
+</div>
+<div style="margin: 5px;" class="row row-section mt-3">
+    <p class="section-title">Soft Skills</p>
+    <hr>
+    @for(i of userObject.softSkills; track i){
+        <div style="font-size: 4mm; font-weight: 500;" class="row justify-content-between">
+            <div class="col-9 mb-2"><span>{{getKey(i)}}:</span></div>
+            <div class="col-2 mb-2"><span>{{getValue(i)}}%</span></div>   
+        </div>
+    }
+    
+</div>
+@for(i of userObject.softSkills; track i){
+    
+}

@@ -15,32 +15,48 @@
                         <p style="color: #736C6C; font-weight: 400; font-weight: 600;">{{this.cv.Headline}}</p>
                         <p style="color: #736C6C; font-weight: 400;">{{this.cv.Address}}</p>
                     </div>
-                    
                 </div>
                 <div class="row row-section">
                     <div class="col-6 fade mt-2">
                         <p class="section-title fade">General Info:</p>
-                        <p><span class="small-section-title">Age:</span> 29 Years</p>
                         <p><span class="small-section-title">Skills:</span>
                             <ul>
                             @for(i of this.skillList; track i){
-                                <li>{{i}} </li>
+                                @if(i !== ''){
+                                    <li>{{i}}</li>
+                                }
                             }
                             </ul>
                     </div>
                     <div class="col-6 fade mt-2">
                         <p class="section-title">Contact Info:</p>
-                        <p><img style="width: 40px;" src="./assets/Call.png"><span class="small-section-title">+{{this.cv.Phones}}</span></p>
+                        <p><img style="width: 40px;" src="./assets/Call.png"><span class="small-section-title">{{this.cv.Phones}}</span></p>
                         <p><img style="width: 40px;" src="./assets/Envelope.png"><span class="small-section-title">{{this.cv.Email}}</span></p>
                         <p><img style="width: 40px;" src="./assets/Download.png"> <button style="padding: 4px;" class="btn btn-primary">Download CV</button></p>
                     </div>
                 </div>
                 <div class="row row-section">
+                    <p class="section-title fade">Education</p>
+                    <div class="col-12 mb-2 fade">
+                            @for(i of eduList; track i){
+                                @if(i !== ''){
+                                    <p>{{i}}</p>
+                                    <hr>
+                                }
+                            }
+                    </div>
+                    
+                
+                   
+                </div>
+                <div class="row row-section">
                     <p class="section-title fade">Experience</p>
                     <div class="col-12 mb-2 fade">
                             @for(i of expList; track i){
-                                <p>{{i}}</p>
-                                <hr>
+                                @if(i !== ''){
+                                    <p>{{i}}</p>
+                                    <hr>
+                                }
                             }
                     </div>
                     
@@ -52,8 +68,10 @@
                     <div class="col-12 mb-2 fade">
                             <div class="col-9 mb-2 fade">
                                 @for(i of pubList; track i){
-                                    <p>{{i}}</p>
-                                    <hr>
+                                    @if(i !== ''){
+                                        <p>{{i}}</p>
+                                        <hr>
+                                    }
                                 }
                             </div>
                     </div>
@@ -95,13 +113,7 @@
                         <span class="small-section-title">Available for immediate start</span>
                     </div>
                 </div>
-                <div style="margin: 5px;" class="row row-section mt-5">
-                    <p style="font-weight: 600; font-size: large;">Languages:</p>
-                    <p style="font-weight: 500; font-size: large;" class="mt-2">Arabic</p>
-                    <span style="font-size: x-large;">★ ★ ★ ★ ★</span>
-                    <p style="font-weight: 500; font-size: large;" class="mt-2">English</p>
-                    <span style="font-size: x-large;">★ ★ ★ ★ ☆</span>
-                </div>
+                <app-soft-skills-view [userObject]="userObject"></app-soft-skills-view>
             </div>
         </div>
     </div>

@@ -14,3 +14,45 @@
     padding-left: 6vw;
     padding-right: 6vw;
 }
+.circle {
+    width: 30px;            
+    height: 30px;           
+    background-color: #000000; 
+    color: white;            
+    font-size: 0.9rem;         
+    font-weight: bold;       
+    display: flex;           
+    align-items: center;     
+    justify-content: center; 
+    border-radius: 50%;      
+    text-align: center;    
+    cursor: pointer;  
+  }
+.navbar-menu-container{
+    display: flex;            /* Align children in a row */
+    align-items: center;      /* Vertically center the items */
+}
+.profile-menu {
+    position: absolute;
+    top: 50px; /* Adjust the value to ensure the menu appears right under the circle */
+    right: 2rem;
+    background-color: white;
+    border: 1px solid #b4b4b4;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 150px; /* Adjust width as needed */
+  }
+  
+  .profile-menu button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  .profile-menu button:hover {
+    background-color: #f0f0f0;
+  }

@@ -20,12 +20,38 @@
     </div>
   </div>
     <div class="row justify-content-center">
-        <div class="middle-text mt-5">
+        <!-- <div class="middle-text mt-5">
             <p style="font-size: large; font-weight: 700;">Professional Information</p>
             <p style="font-size: large;">Tell companies about your professional experience.</p>
-        </div>
+        </div> -->
         <div class="col-8 row-section mt-3">
-            <span class="mt-1" style="font-size: large; font-weight: 600;">Upload Your CV</span>
+          <span class="mt-1" style="font-size: large; font-weight: 600;">Upload Your Video
+            @if(videoUploaded){
+              <p-tag severity="success" value="✔" />
+            }
+          </span>
+          <p class="p-warning">Supported files: .mp4 or .mov with maximum size of 5MB</p>
+          <p>Please introduce yourself with a brief video, keeping it under 5 minutes.</p>
+          <div class="d-flex justify-content-between">
+              <button style="padding: 7px; max-height: 40px;" class="btn btn-primary" (click)="triggerVideoInput()">Upload Your Video</button>
+              <input type="file" #videoInput accept=".mp4,.mov" (change)="onVideoSelected($event)" style="display: none;">
+              @if (selectedVideoName) {
+                <p class="mt-1" style="margin-right: 20px;">Selected Video: {{selectedVideoName}}</p>
+              }
+          </div>
+          @if (loadingVideo) {
+            <p class="mt-2" style="font-size: largeR; font-weight: 600;">Loading...</p>
+            <p-progressBar mode="indeterminate" [style]="{ height: '6px' , backgroundColor: '#553D8E'}" />
+          }
+          
+      </div>
+        <div class="col-8 row-section mt-3">
+            <span class="mt-1" style="font-size: large; font-weight: 600;">Upload Your CV
+              @if(cvUploaded){
+                <p-tag severity="success" value="✔" />
+              }
+              
+            </span>
             <p class="p-warning">Supported files: .docx, .doc or .pdf, with maximum size of 5MB</p>
             <div class="d-flex justify-content-between">
                 <button style="padding: 7px; max-height: 40px;" class="btn btn-primary" (click)="triggerFileInput()">Upload Your CV</button>
@@ -34,18 +60,19 @@
                   <p class="mt-1" style="margin-right: 20px;">Selected File: {{selectedFileName}}</p>
                 }
             </div>
-           
+            @if (loadingCv) {
+              <p class="mt-2" style="font-size: largeR; font-weight: 600;">Loading...</p>
+              <p-progressBar mode="indeterminate" [style]="{ height: '6px' , backgroundColor: '#553D8E'}" />
+            }
         </div>
+        
         <div style="margin-top: 90px;" class="row justify-content-center">
             <div class="col-8">
                 <div class="d-flex justify-content-between">
                     <button class="btn btn-secondary" (click)="navigateToDest2()">Back</button>
-                    <button class="btn btn-primary" (click)="uploadFile()">Get started</button>
+                    <button class="btn btn-primary" (click)="takeSkillsQuiz()">Take Skills Quiz</button>
                 </div>
-                @if (loading) {
-                    <p class="mt-4" style="font-size: largeR; font-weight: 600;">Loading...</p>
-                    <p-progressBar mode="indeterminate" [style]="{ height: '6px' , backgroundColor: '#553D8E'}" />
-                }
+                
             </div>
         </div>
     </div>

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { jwtDecode } from 'jwt-decode';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
@@ -36,7 +37,18 @@ export class AuthService {
   getToken(): any {
     return this.cookieService.get('auth_token');
   }
+  deleteToken(){
+    this.cookieService.delete('auth_token')
+  }
   isAuth(): boolean {
     return !!this.getToken();
+  }
+  getTokenObject(): any{
+    if(this.isAuth()){
+      const token = jwtDecode(this.getToken());
+      return token;
+    } else{
+      return undefined;
+    }
   }
 }
