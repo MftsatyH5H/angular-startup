@@ -18,6 +18,7 @@ export class SoftSkillsViewComponent implements OnInit{
   totalPercentage: number = 0;
   constructor(private cvDataService: CvDataService){
   }
+  
   ngOnInit(): void {
     this.userObject.facialRecognition.forEach((item: any) => {
       this.facialRecognitionPercentage = this.facialRecognitionPercentage + item.Percentage;
@@ -40,6 +41,7 @@ export class SoftSkillsViewComponent implements OnInit{
     const dataToSend = {
       data
     }
+    this.technicalSkillsPercentage = this.generateRandomNumber();
     const percentage = (this.technicalSkillsPercentage + this.softSkillsPercentage + this.facialRecognitionPercentage) / 3;
     this.totalPercentage = parseFloat(percentage.toFixed(1))
     console.log(dataToSend);
@@ -125,5 +127,8 @@ export class SoftSkillsViewComponent implements OnInit{
     if(totalButton){
       totalButton.className = 'row row-button justify-content-between'
     }
+  }
+  generateRandomNumber(min = 50, max = 70) {
+    return Math.random() * (max - min) + min;
   }
 }
