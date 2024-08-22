@@ -71,9 +71,9 @@ export class CvDataService {
   console.log(this.apiGetSimilarCandidates + id);
   return this.http.get(this.apiGetSimilarCandidates + id);
   }
-  getFacialRecognition(video: any, name: any){
+  getFacialRecognition(video: any, name: any, id: any){
     const formData = new FormData();
-    formData.append('user_id', 'dd122');
+    formData.append('user_id', `${id}`);
     formData.append('file', video, name);
     return this.http.post(this.apiUploadVideoUrl, formData);
   }

@@ -122,7 +122,9 @@ export class UserSignupComponent implements OnInit {
     // this.id = token.id;
     // formData.append('video', this.selectedFile, this.selectedFile.name);
     // formData.append('applicantId', this.id);
-    this.cvDataService.getFacialRecognition(this.selectedVideo, this.selectedVideoName).subscribe((response: any) => {
+    const token: any = jwtDecode(this.token);
+    const id = token.id;
+    this.cvDataService.getFacialRecognition(this.selectedVideo, this.selectedVideoName, id).subscribe((response: any) => {
       console.log(response);
       // this.cvDataService.setCv(response.extracted);
       // this.navigateToDest();

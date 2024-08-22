@@ -48,7 +48,7 @@ export class SoftSkillsViewComponent implements OnInit{
     this.cvDataService.getChart(dataToSend).subscribe((response: any) => {
       this.imgSrc = `data:image/jpeg;base64,${response.image}`
     });
-
+    this.technicalSkillsPercentage = parseFloat(this.technicalSkillsPercentage.toFixed(1));
   }
   changeChartChoice(value: any){
     this.resetButtonChoices();
