@@ -40,8 +40,8 @@
               }
           </div>
           @if (loadingVideo) {
-            <p class="mt-2" style="font-size: largeR; font-weight: 600;">Loading...</p>
-            <p-progressBar mode="indeterminate" [style]="{ height: '6px' , backgroundColor: '#553D8E'}" />
+            <p class="mt-2" style="font-size: largeR; font-weight: 600;">{{loadingDescVideo}}</p>
+            <p-progressBar [value]="loadingValueVideo" />
           }
           
       </div>
@@ -61,8 +61,8 @@
                 }
             </div>
             @if (loadingCv) {
-              <p class="mt-2" style="font-size: largeR; font-weight: 600;">Loading...</p>
-              <p-progressBar mode="indeterminate" [style]="{ height: '6px' , backgroundColor: '#553D8E'}" />
+              <p class="mt-2" style="font-size: largeR; font-weight: 600;">{{loadingDescCv}}</p>
+              <p-progressBar [value]="loadingValueCv"  />
             }
         </div>
         

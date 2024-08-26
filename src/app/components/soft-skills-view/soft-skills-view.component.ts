@@ -41,7 +41,7 @@ export class SoftSkillsViewComponent implements OnInit{
     const dataToSend = {
       data
     }
-    this.technicalSkillsPercentage = this.generateRandomNumber();
+    this.technicalSkillsPercentage = this.userObject.techSkills;
     const percentage = (this.technicalSkillsPercentage + this.softSkillsPercentage + this.facialRecognitionPercentage) / 3;
     this.totalPercentage = parseFloat(percentage.toFixed(1))
     console.log(dataToSend);
@@ -127,8 +127,5 @@ export class SoftSkillsViewComponent implements OnInit{
     if(totalButton){
       totalButton.className = 'row row-button justify-content-between'
     }
-  }
-  generateRandomNumber(min = 50, max = 70) {
-    return Math.random() * (max - min) + min;
   }
 }

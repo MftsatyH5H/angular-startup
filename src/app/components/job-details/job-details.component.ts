@@ -56,5 +56,4 @@ export class JobDetailsComponent implements OnInit {
    navigateToJob(id: string) {
     this.router.navigate(['/jobDescription/' +id]);
   }
-  generateNumber(){return Math.floor(Math.random() * (87 - 55 + 1)) + 55;};
 }
