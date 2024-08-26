@@ -97,98 +97,85 @@ export class UserSignupComponent implements OnInit {
     formData.append('applicantId', this.id);
     setTimeout(() => {
       this.loadingValueCv = 6;
-      this.loadingDescCv = 'Extracting Data...'
-    }, 3000)
-
+      this.loadingDescCv = 'Extracting Data...';
+    }, 2000);
+    
     setTimeout(() => {
       this.loadingValueCv = 12;
-      this.loadingDescCv = 'Extracting Data...'
-    }, 8000)
-
+      this.loadingDescCv = 'Extracting Data...';
+    }, 4000);
+    
     setTimeout(() => {
       this.loadingValueCv = 19;
-      this.loadingDescCv = 'Extracting Data...'
-    }, 11000)
-
+      this.loadingDescCv = 'Extracting Data...';
+    }, 5500);
+    
     setTimeout(() => {
       this.loadingValueCv = 25;
-      this.loadingDescCv = 'Analyzing...'
-    }, 13000)
-
+      this.loadingDescCv = 'Analyzing...';
+    }, 7000);
+    
     setTimeout(() => {
       this.loadingValueCv = 35;
-      this.loadingDescCv = 'Analyzing...'
-    }, 17000)
-
+      this.loadingDescCv = 'Analyzing...';
+    }, 9000);
+    
     setTimeout(() => {
       this.loadingValueCv = 39;
-      this.loadingDescCv = 'Analyzing...'
-    }, 23000)
-
-    setTimeout(() => {
-      this.loadingValueCv = 35;
-      this.loadingDescCv = 'Analyzing...'
-    }, 27000)
-
+      this.loadingDescCv = 'Analyzing...';
+    }, 12000);
+    
     setTimeout(() => {
       this.loadingValueCv = 40;
-      this.loadingDescCv = 'Analyzing...'
-    }, 33000)
-
+      this.loadingDescCv = 'Analyzing...';
+    }, 14000);
+    
     setTimeout(() => {
-      this.loadingValueCv = 50;
-      this.loadingDescCv = 'Analyzing...'
-    }, 27000)
-
+      this.loadingValueCv = 43;
+      this.loadingDescCv = 'Analyzing...';
+    }, 15000);
+    
     setTimeout(() => {
       this.loadingValueCv = 55;
-      this.loadingDescCv = 'Analyzing...'
-    }, 32000)
-
+      this.loadingDescCv = 'Analyzing...';
+    }, 16000);
+    
     setTimeout(() => {
       this.loadingValueCv = 61;
-      this.loadingDescCv = 'Analyzing...'
-    }, 38000)
-
+      this.loadingDescCv = 'Analyzing...';
+    }, 19000);
+    
     setTimeout(() => {
       this.loadingValueCv = 67;
-      this.loadingDescCv = 'Analyzing...'
-    }, 43000)
-
+      this.loadingDescCv = 'Analyzing...';
+    }, 21500);
+    
     setTimeout(() => {
       this.loadingValueCv = 71;
-      this.loadingDescCv = 'Analyzing...'
-    }, 47000)
-
+      this.loadingDescCv = 'Analyzing...';
+    }, 23500);
+    
     setTimeout(() => {
       this.loadingValueCv = 79;
-      this.loadingDescCv = 'Analyzing...'
-    }, 51000)
-
+      this.loadingDescCv = 'Analyzing...';
+    }, 25500);
+    
     setTimeout(() => {
       this.loadingValueCv = 85;
-      this.loadingDescCv = 'Finalizing...'
-    }, 55000)
-
+      this.loadingDescCv = 'Finalizing...';
+    }, 27500);
+    
     setTimeout(() => {
       this.loadingValueCv = 90;
-      this.loadingDescCv = 'Finalizing...'
-    }, 60000)
-
+      this.loadingDescCv = 'Finalizing...';
+    }, 29000);
+    
     setTimeout(() => {
       this.loadingValueCv = 95;
-      this.loadingDescCv = 'Finalizing...'
-    }, 65000)
-
-    setTimeout(() => {
-      this.loadingValueCv = 95;
-      this.loadingDescCv = 'Finalizing...'
-    }, 73000)
+      this.loadingDescCv = 'Finalizing...';
+    }, 30000);
+    
     this.cvDataService.ExtractCvData(formData, this.token).subscribe((response) => {
-      setTimeout(() => {
-        this.loadingValueCv = 98;
-        this.loadingDescCv = 'Finalizing...'
-      }, 78000)
       console.log(response);
       this.loadingCv = false;
       this.cvDataService.setCv(response.extracted);
@@ -223,93 +210,88 @@ export class UserSignupComponent implements OnInit {
     const id = token.id;
     setTimeout(() => {
       this.loadingValueVideo = 6;
-      this.loadingDescVideo = 'Extracting Data...'
-    }, 3000)
-
+      this.loadingDescVideo = 'Extracting Data...';
+    }, 2000);
+    
     setTimeout(() => {
       this.loadingValueVideo = 12;
-      this.loadingDescVideo = 'Extracting Data...'
-    }, 8000)
-
+      this.loadingDescVideo = 'Extracting Data...';
+    }, 4000);
+    
     setTimeout(() => {
       this.loadingValueVideo = 19;
-      this.loadingDescVideo = 'Extracting Data...'
-    }, 11000)
-
+      this.loadingDescVideo = 'Extracting Data...';
+    }, 5500);
+    
     setTimeout(() => {
       this.loadingValueVideo = 25;
-      this.loadingDescVideo = 'Analyzing...'
-    }, 13000)
-
+      this.loadingDescVideo = 'Analyzing...';
+    }, 7000);
+    
     setTimeout(() => {
       this.loadingValueVideo = 35;
-      this.loadingDescVideo = 'Analyzing...'
-    }, 17000)
-
+      this.loadingDescVideo = 'Analyzing...';
+    }, 9000);
+    
     setTimeout(() => {
       this.loadingValueVideo = 39;
-      this.loadingDescVideo = 'Analyzing...'
-    }, 23000)
-
-    setTimeout(() => {
-      this.loadingValueVideo = 35;
-      this.loadingDescVideo = 'Analyzing...'
-    }, 27000)
-
+      this.loadingDescVideo = 'Analyzing...';
+    }, 12000);
+    
     setTimeout(() => {
       this.loadingValueVideo = 40;
-      this.loadingDescVideo = 'Analyzing...'
-    }, 33000)
-
+      this.loadingDescVideo = 'Analyzing...';
+    }, 14000);
+    
+    setTimeout(() => {
+      this.loadingValueVideo = 42;
+      this.loadingDescVideo = 'Analyzing...';
+    }, 16500);
+    
     setTimeout(() => {
       this.loadingValueVideo = 50;
-      this.loadingDescVideo = 'Analyzing...'
-    }, 27000)
-
+      this.loadingDescVideo = 'Analyzing...';
+    }, 17000);
+    
     setTimeout(() => {
       this.loadingValueVideo = 55;
-      this.loadingDescVideo = 'Analyzing...'
-    }, 32000)
-
+      this.loadingDescVideo = 'Analyzing...';
+    }, 17500);
+    
     setTimeout(() => {
       this.loadingValueVideo = 61;
-      this.loadingDescVideo = 'Analyzing...'
-    }, 38000)
-
+      this.loadingDescVideo = 'Analyzing...';
+    }, 19000);
+    
     setTimeout(() => {
       this.loadingValueVideo = 67;
-      this.loadingDescVideo = 'Analyzing...'
-    }, 43000)
-
+      this.loadingDescVideo = 'Analyzing...';
+    }, 21500);
+    
     setTimeout(() => {
       this.loadingValueVideo = 71;
-      this.loadingDescVideo = 'Analyzing...'
-    }, 47000)
-
+      this.loadingDescVideo = 'Analyzing...';
+    }, 23500);
+    
     setTimeout(() => {
       this.loadingValueVideo = 79;
-      this.loadingDescVideo = 'Analyzing...'
-    }, 51000)
-
+      this.loadingDescVideo = 'Analyzing...';
+    }, 25500);
+    
     setTimeout(() => {
       this.loadingValueVideo = 85;
-      this.loadingDescVideo = 'Finalizing...'
-    }, 55000)
-
+      this.loadingDescVideo = 'Finalizing...';
+    }, 27500);
+    
     setTimeout(() => {
       this.loadingValueVideo = 90;
-      this.loadingDescVideo = 'Finalizing...'
-    }, 60000)
-
+      this.loadingDescVideo = 'Finalizing...';
+    }, 29000);
+    
     setTimeout(() => {
       this.loadingValueVideo = 95;
-      this.loadingDescVideo = 'Finalizing...'
-    }, 65000)
-
-    setTimeout(() => {
-      this.loadingValueVideo = 95;
-      this.loadingDescVideo = 'Finalizing...'
-    }, 73000)
+      this.loadingDescVideo = 'Finalizing...';
+    }, 30000);    
     this.cvDataService.getFacialRecognition(this.selectedVideo, this.selectedVideoName, id).subscribe((response: any) => {
       console.log(response);
       // this.cvDataService.setCv(response.extracted);
