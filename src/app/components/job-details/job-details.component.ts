@@ -29,6 +29,7 @@ export class JobDetailsComponent implements OnInit {
   openVac: any
   mappedOpenVac: any
   users: any
+  isCompany: boolean = false;
   ngOnInit():void {
     this.route.paramMap.subscribe(params => {
       this.jobId = params.get('id');
@@ -49,9 +50,12 @@ export class JobDetailsComponent implements OnInit {
           role: element.Role.split('\n')[0]
         };
       });
-      console.log(this.mappedOpenVac);
-
     }) 
+    const tokenObject = this.auth.getTokenObject();
+    if(tokenObject.role === 'company'){
+      this.isCompany = true
+    }
+
    }
    navigateToJob(id: string) {
     this.router.navigate(['/jobDescription/' +id]);

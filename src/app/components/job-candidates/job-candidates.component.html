@@ -1,16 +1,18 @@
 @if(!loading){
+<div class="overflow-section">
     @for(i of users; track i){
         @if(i.Name){
             <div class="row justify-content-center">
                 <div class="col-11">
-                    <div (click)="navigateToCandidate(i.applicantId)" class="row row-section mt-3">
+                    <div (click)="navigateToCandidate(i.applicantId, roundUpNumber(i.Score * 1000 * -1))" class="row row-section mt-3">
                         <span class="p-candidate-title">{{i.Name}}</span>
-                        <p class="p-candidate-desc">{{i.Score * 1000 * -1}}%</p>
+                        <p class="p-candidate-desc">{{roundUpNumber(i.Score * 1000 * -1)}}%</p>
                     </div>
                 </div>
             </div>
         }   
-    }   
+    } 
+</div>
 }
 @if(loading){
     @for (i of loadingSkeletons; track i){

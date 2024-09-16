@@ -10,6 +10,7 @@ import { CvDataService } from '../cv-data.service';
 })
 export class SoftSkillsViewComponent implements OnInit{
   @Input() userObject: any
+  @Input() techSkillsPercentage: any;
   imgSrc: any
   currentChartChoice: string = 'softSkills'
   softSkillsPercentage: number = 0;
@@ -32,7 +33,7 @@ export class SoftSkillsViewComponent implements OnInit{
       this.softSkillsPercentage = this.softSkillsPercentage + value;
       this.softSkillsPercentage = parseFloat(this.softSkillsPercentage.toFixed(1));
     });
-    this.softSkillsPercentage = this.softSkillsPercentage * 10
+    this.softSkillsPercentage = Math.floor(this.softSkillsPercentage * 10)
     const data = this.userObject.softSkills.reduce((acc: { [x: string]: any; }, currentObj: { [x: string]: any; }) => {
       const key = Object.keys(currentObj)[0];
       acc[key] = currentObj[key];
@@ -43,12 +44,12 @@ export class SoftSkillsViewComponent implements OnInit{
     }
     this.technicalSkillsPercentage = this.userObject.techSkills;
     const percentage = (this.technicalSkillsPercentage + this.softSkillsPercentage + this.facialRecognitionPercentage) / 3;
-    this.totalPercentage = parseFloat(percentage.toFixed(1))
+    this.totalPercentage = Math.floor(parseFloat(percentage.toFixed(1)))
     console.log(dataToSend);
     this.cvDataService.getChart(dataToSend).subscribe((response: any) => {
       this.imgSrc = `data:image/jpeg;base64,${response.image}`
     });
-    this.technicalSkillsPercentage = parseFloat(this.technicalSkillsPercentage.toFixed(1));
+    this.technicalSkillsPercentage = Math.floor(parseFloat(this.technicalSkillsPercentage.toFixed(1)));
   }
   changeChartChoice(value: any){
     this.resetButtonChoices();
@@ -107,8 +108,8 @@ export class SoftSkillsViewComponent implements OnInit{
   }
 
   getValue(obj: any): number {
-    //im sorry
-    return parseFloat(obj[Object.keys(obj)[0]].toFixed(1)) *100;
+    //im so so sorry
+    return Math.floor(parseFloat(obj[Object.keys(obj)[0]].toFixed(1)) * 100);
   }
   resetButtonChoices(){
     const skillsButton = document.getElementById('softSkills');

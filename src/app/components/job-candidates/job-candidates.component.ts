@@ -23,9 +23,11 @@ export class JobCandidatesComponent implements OnInit {
       this.loading = false;
     });  
   }
-  navigateToCandidate(id: string){
-    this.router.navigate(['/profile/' + id]);
+  navigateToCandidate(id: string, percentage: any){
+    this.router.navigate(['/profile/' + id + '/' + percentage]);
   }
-
+  roundUpNumber(number: number){
+    return Math.ceil(number)
+  }
   
 }

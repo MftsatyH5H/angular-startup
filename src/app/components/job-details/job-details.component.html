@@ -46,7 +46,9 @@
                 </div>
             </div>
             <div class="col-3">
-                <app-job-candidates [JobId]="jobId" />
-                </div>
+                @if(isCompany){
+                    <app-job-candidates [JobId]="jobId" />
+                }
+            </div>
             </div>
         </div>

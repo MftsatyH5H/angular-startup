@@ -17,6 +17,7 @@ export const routes: Routes = [
     { path: 'signUp', component: SignUpComponent },
     { path: 'company', component: SignInCompanyComponent },
     { path: 'uploadCv', component: UserSignupComponent },
+    { path: 'profile/:id/:percentage', component: ProfileDetailsComponent },
     { path: 'profile/:id', component: ProfileDetailsComponent },
     { path: 'soft-skills', component: SoftQuestionsComponent },
     { path: 'companyProfile', component: CompanyProfileComponent },

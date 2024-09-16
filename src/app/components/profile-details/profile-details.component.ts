@@ -23,6 +23,7 @@ export class ProfileDetailsComponent implements OnInit {
   token: any = ''
   loading: boolean = true
   isCompany: boolean = false;
+  techSkillsPercentage: any = 0;
   userObject: any;
   expList: string[] = [];
   pubList: string[] = [];
@@ -33,6 +34,7 @@ export class ProfileDetailsComponent implements OnInit {
     this.token = this.authService.getTokenObject();
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
+      this.techSkillsPercentage = params.get('percentage');
     });
     this.cvDataService.getCvData(this.id).subscribe((response) => {
       console.log(response.data);

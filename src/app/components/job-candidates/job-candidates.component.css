@@ -110,6 +110,13 @@
     animation-name: fade-in;
     animation-duration: 0.5s
 }
+.overflow-section{
+    margin-top: 6px;
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 15px;
+}
 .p-candidate-title{
     font-size: large;
     font-weight: 600;

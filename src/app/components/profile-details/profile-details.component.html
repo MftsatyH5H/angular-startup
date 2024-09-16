@@ -113,7 +113,9 @@
                         <span class="small-section-title">Available for immediate start</span>
                     </div>
                 </div>
-                <app-soft-skills-view [userObject]="userObject"></app-soft-skills-view>
+                @if(isCompany){
+                    <app-soft-skills-view [userObject]="userObject" [techSkillsPercentage]="techSkillsPercentage"></app-soft-skills-view>
+                }
             </div>
         </div>
     </div>
