@@ -18,8 +18,8 @@ export class JobCandidatesComponent implements OnInit {
   constructor(private cvDataService: CvDataService, private router: Router){}
   ngOnInit(): void {
     this.cvDataService.getSimilarCandidates(this.JobId).subscribe((response: any) => {
-      console.log(response);
-      this.users = response.data;
+      console.log('similar candidates: ',response.data);
+      this.users = response.data.sort((a: any, b: any) => b.totalScore - a.totalScore);
       this.loading = false;
     });  
   }

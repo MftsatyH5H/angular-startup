@@ -11,6 +11,7 @@ import { CvDataService } from '../cv-data.service';
 export class SoftSkillsViewComponent implements OnInit{
   @Input() userObject: any
   @Input() techSkillsPercentage: any;
+  @Input() totalScore: any;
   imgSrc: any
   currentChartChoice: string = 'softSkills'
   softSkillsPercentage: number = 0;
@@ -21,19 +22,21 @@ export class SoftSkillsViewComponent implements OnInit{
   }
   
   ngOnInit(): void {
-    this.userObject.facialRecognition.forEach((item: any) => {
-      this.facialRecognitionPercentage = this.facialRecognitionPercentage + item.Percentage;
-      this.facialRecognitionPercentage = parseFloat(this.facialRecognitionPercentage.toFixed(1));
-    })
+    console.log(this.techSkillsPercentage)
+    this.technicalSkillsPercentage = Number(this.techSkillsPercentage);
+    const totalFacialRecognitionScore = this.userObject.facialRecognition.reduce((sum: number, emotion: any) => {
+      const newPercentage = sum + emotion.Percentage;
+      return parseFloat(newPercentage.toFixed(1))
+    }, 0);
     const softSkills = Object.values(this.userObject.softSkills);
-    console.log('sadkaskfm',softSkills)
-    softSkills.forEach((obj: any) => {
-      const value = Object.values(obj)[0];
+    const softSkillsPercentage = softSkills.reduce((sum: number, skill: any) => {
+      //im sorry again
       //@ts-ignore
-      this.softSkillsPercentage = this.softSkillsPercentage + value;
-      this.softSkillsPercentage = parseFloat(this.softSkillsPercentage.toFixed(1));
-    });
-    this.softSkillsPercentage = Math.floor(this.softSkillsPercentage * 10)
+      const value:any = Math.floor(parseFloat(Object.values(skill)[0].toFixed(1)) *10);
+      return sum + value;
+    }, 0);
+    this.softSkillsPercentage = softSkillsPercentage;
+    this.facialRecognitionPercentage = totalFacialRecognitionScore;
     const data = this.userObject.softSkills.reduce((acc: { [x: string]: any; }, currentObj: { [x: string]: any; }) => {
       const key = Object.keys(currentObj)[0];
       acc[key] = currentObj[key];
@@ -42,14 +45,12 @@ export class SoftSkillsViewComponent implements OnInit{
     const dataToSend = {
       data
     }
-    this.technicalSkillsPercentage = this.userObject.techSkills;
-    const percentage = (this.technicalSkillsPercentage + this.softSkillsPercentage + this.facialRecognitionPercentage) / 3;
-    this.totalPercentage = Math.floor(parseFloat(percentage.toFixed(1)))
+    let totalScore: any = (this.facialRecognitionPercentage + this.softSkillsPercentage + this.technicalSkillsPercentage) / 3;
+    this.totalPercentage = Math.ceil(totalScore.toFixed(1)) as number;
     console.log(dataToSend);
     this.cvDataService.getChart(dataToSend).subscribe((response: any) => {
       this.imgSrc = `data:image/jpeg;base64,${response.image}`
     });
-    this.technicalSkillsPercentage = Math.floor(parseFloat(this.technicalSkillsPercentage.toFixed(1)));
   }
   changeChartChoice(value: any){
     this.resetButtonChoices();
